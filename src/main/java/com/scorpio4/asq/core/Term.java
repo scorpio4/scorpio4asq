@@ -5,13 +5,13 @@ package com.scorpio4.asq.core;
  */
 
 import com.scorpio4.asq.ASQ;
-import com.scorpio4.iq.bean.XSD2POJOConverter;
+import com.scorpio4.util.bean.XSD2POJOConverter;
 import com.scorpio4.oops.ASQException;
 import com.scorpio4.util.string.PrettyString;
 import com.scorpio4.vocab.COMMONS;
 
 /**
- * Fact:Core (c) 2012
+ * Scorpio4 (c) 2012
  * @author lee
  * Date: 31/07/13
  * Time: 9:53 AM
