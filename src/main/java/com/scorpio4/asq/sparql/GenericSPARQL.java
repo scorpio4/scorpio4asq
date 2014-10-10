@@ -12,6 +12,7 @@ import com.scorpio4.asq.core.Term;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.lang.StringBuilder;
 import java.util.Collection;
 
 /**
@@ -134,6 +135,20 @@ public abstract class GenericSPARQL {
         }
         sparql.append(")}");
     }
+
+	public String bind(Map<String, Object> bindings) {
+		StringBuilder keys = new StringBuilder();
+		keys.append("BINDINGS ");
+		StringBuilder values = new StringBuilder();
+		values.append(" {(");
+		for(String key: bindings.keySet()) {
+			keys.append("?").append(key).append(" ");
+			buildBinding(values, new LiteralTerm(bindings.get(key)));
+		}
+		values.append(")}");
+		keys.append(values);
+		return keys.toString();
+	}
 
     public String toString() {
         return sparql.toString();

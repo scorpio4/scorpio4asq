@@ -1,8 +1,6 @@
 package com.scorpio4.asq;
-/*
- *
 
- */
+import com.scorpio4.oops.ASQException;
 
 /**
  * Scorpio4 (c) 2013-2014
@@ -13,5 +11,5 @@ package com.scorpio4.asq;
  */
 public interface ASQParser {
 
-    public ASQ getASQ();
+    public ASQ getASQ() throws ASQException;
 }
