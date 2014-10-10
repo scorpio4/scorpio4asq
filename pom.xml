@@ -101,14 +101,21 @@
 
         <dependency>
             <groupId>com.scorpio4</groupId>
-            <artifactId>scorpio4utilities</artifactId>
+            <artifactId>scorpio4core</artifactId>
             <version>${project.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.scorpio4</groupId>
-            <artifactId>scorpio4core</artifactId>
+            <artifactId>scorpio4utilities</artifactId>
             <version>${project.version}</version>
+        </dependency>
+
+        <!-- Logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
         </dependency>
     </dependencies>
 

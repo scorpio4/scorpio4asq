@@ -9,11 +9,12 @@ import com.scorpio4.asq.core.LiteralTerm;
 import com.scorpio4.asq.core.Pattern;
 import com.scorpio4.asq.core.RawTerm;
 import com.scorpio4.asq.core.Term;
+import com.scorpio4.oops.ASQException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.lang.StringBuilder;
 import java.util.Collection;
+import java.util.Map;
 
 /**
  * Fact:Core (c) 2013
@@ -136,14 +137,15 @@ public abstract class GenericSPARQL {
         sparql.append(")}");
     }
 
-	public String bind(Map<String, Object> bindings) {
+	public String bind(Map<String, Object> bindings) throws ASQException {
 		StringBuilder keys = new StringBuilder();
 		keys.append("BINDINGS ");
 		StringBuilder values = new StringBuilder();
 		values.append(" {(");
 		for(String key: bindings.keySet()) {
+			Object value = bindings.get(key);
 			keys.append("?").append(key).append(" ");
-			buildBinding(values, new LiteralTerm(bindings.get(key)));
+			buildBinding(values, new LiteralTerm(value.toString(), "string") );
 		}
 		values.append(")}");
 		keys.append(values);
